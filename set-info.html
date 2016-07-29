@@ -23,7 +23,7 @@
 				line-height: 50px;
 				font-weight:normal;
 			}
-
+			
 			.mui-input-group .mui-input-row{
 				height:50px;
 				background-color:#F2F2F2;
@@ -42,13 +42,17 @@
 				border-color:#3EAD18 !important;
 			}
 			.mui-input-group label {
-				width: 14%;
-				padding:14px 15px;
+				position:absolute;
+				top:6px;
 			}
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 84%;
+				width: 100%;
+				padding-left:92px;
+			}
+			.mui-input-row .mui-input-clear~.mui-icon-clear{
+				top:16px;
 			}
 			.mui-checkbox input[type=checkbox],
 			.mui-radio input[type=radio] {
@@ -96,23 +100,19 @@
 			.noline:after{
 				height:0 !important;
 			}
-			.tits{
-				text-align:center;
-				margin-top:40px;
-				font-weight:normal;
-				color:#555555;
-			}
 			.sendCode{
-				width:96px;
 				position:absolute;
 				right:10px;
 				top:8px;
 				border-color:#E39E49;
 			}
-			.mui-input-row .mui-input-clear~.mui-icon-clear{
-				top:16px;
+			.agreement{
+				top:12px !important;
+				padding:0 !important;
 			}
-			#veriCode .mui-icon-clear{display: none;}
+			.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+				color:#E39E48;
+			}
 		</style>
 
 	</head>
@@ -120,54 +120,47 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
-			<h1 class="mui-title">忘记密码</h1>
+			<h1 class="mui-title">设置昵称和密码</h1>
 		</header>
 		<div class="mui-content">
 			<form id='login-form' onsubmit="return false;" class="mui-input-group mui-content-padded noline">
 				<div class="mui-input-row noline">
-					<label><span class="mui-icon mui-icon-person"></span></label>
-					<input id='account' type="tel" class="mui-input-clear mui-input" placeholder="手机号码">
+					<label>输入昵称</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入您的昵称">
 				</div>
-				<div class="mui-input-row noline" id="veriCode" style="margin-top:20px;">
-					<label><span class="mui-icon mui-icon-locked"></span></label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="验证码">
-					<button class="sendCode">发送验证码</button>
+				<div id="veriCode" class="mui-input-row noline" style="margin:20px 0;">
+					<label>输入密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入6位以上字母或数字">
+				</div>
+				<div class="mui-input-row noline">
+					<label>确认密码</label>
+					<input id='account' type="password" class="mui-input-clear mui-input" placeholder="请再次输入您的密码">
+				</div>
+				<div class="mui-input-row mui-checkbox mui-left noline" style="background-color:#fff;">
+					<label style="font-size:14px;color:#666;">我同意蜜蜂中医用户使用协议</label>
+					<input name="checkbox" class="agreement" type="checkbox" >
 				</div>
 			</form>
+			<!--<form class="mui-input-group">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						自动登录
+						<div id="autoLogin" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			</form>-->
 			<div class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">下一步</button>
-				<p style="text-align:center;margin-top:25px;">我们将会通过短信将验证码发送到您的手机上<br/>如需帮助，请联系客服<span style="color:#E39E49;">4008 123 999</span></p>
-				<!--<div class="link-area"><a id='reg'>注册新账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
-				</div>-->
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">完成</button>
+				<p style="text-align:center;margin-top:25px;">注册即代表您已阅读并同意<br/><a href="#" style="color:#E39E48;">蜜蜂中医注册协议</a></p>
+				<div class="link-area"><a id='reg'>直接登录</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				</div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.enterfocus.js"></script>
 		<script src="js/app.js"></script>
-		<script>
-			window.onload=function(){
-				var oBtn=document.querySelector('.sendCode');
-				var count=60,timer=null;
-				
-				oBtn.addEventListener('tap',function(){
-					var _this=this;
-					timer=setInterval(function(){
-						count--;
-						if(count<1){
-							clearInterval(timer);
-							_this.innerHTML='再次发送';
-							_this.style.color='#000';
-							_this.removeAttribute('disabled');
-							count=60;
-						}else{
-							_this.innerHTML=count+'秒';
-							_this.style.color='#E39E48';
-							_this.disabled='disabled';
-						}
-					},1000);
-				},false);
-			}
-		</script>
 	</body>
 
 </html>

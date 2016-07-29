@@ -10,12 +10,37 @@
 		<style>
 			body,.mui-content{background-color:#fff;}
 			a{color:#E39E48;}
-			.logo{
-				width:100%;
-				display: block;
+			.mui-bar{
+				box-shadow:none;
+				background-color:#E39E48;
+				height:50px;
 			}
-			.area {
-				margin: 20px auto 0px auto;
+			.mui-bar .mui-icon{
+				padding-top:14px;
+			}
+			.mui-bar .mui-title{
+				color:#fff;
+				line-height: 50px;
+				font-weight:normal;
+			}
+			.headImg{
+				text-align:center;
+				margin-top:40px;
+			}
+			.headImg h3{
+				color:#E39E48;
+				font-weight:normal;
+				margin-bottom:20px;
+			}
+			.headImg .circle{
+				display:inline-block;
+				border-radius:50%;
+				border:1px solid #E39E48;
+				padding:5px;
+			}
+			.headImg .circle img{
+				width:120px;
+				display:block;
 			}
 			.mui-input-group .mui-input-row{
 				height:50px;
@@ -35,13 +60,17 @@
 				border-color:#3EAD18 !important;
 			}
 			.mui-input-group label {
-				width: 14%;
-				padding:14px 15px;
+				position:absolute;
+				top:6px;
 			}
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 84%;
+				width: 100%;
+				padding-left:60px;
+			}
+			.mui-input-row .mui-input-clear~.mui-icon-clear{
+				top:16px;
 			}
 			.mui-checkbox input[type=checkbox],
 			.mui-radio input[type=radio] {
@@ -101,21 +130,37 @@
 				width:100%;
 				display: block;
 			}
+			.uploadBox{
+				position:relative;
+			}
+			#uploadHead{
+				width:100%;
+				height:100%;
+				position:absolute;
+				top:0;
+				opacity:0;
+			}
 		</style>
 
 	</head>
 
 	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title">个人信息编辑</h1>
+		</header>
 		<div class="mui-content">
-			<div style="padding:0 100px;"><img src="images/login_09.png" alt="logo" class="logo" /></div>
+			<div class="headImg">
+				<span class="circle"><img src="images/head.png" class="head" /></span>
+			</div>
 			<form id='login-form' class="mui-input-group mui-content-padded noline">
-				<div class="mui-input-row noline">
-					<label><span class="mui-icon mui-icon-person"></span></label>
-					<input id='account' type="tel" class="mui-input-clear mui-input" placeholder="用户名">
+				<div class="uploadBox">
+					<span class="mui-btn mui-btn-block mui-btn-primary" style="display: block;">编辑头像</span>
+				<input type="file" id='uploadHead' />
 				</div>
 				<div class="mui-input-row noline" style="margin-top:20px;">
-					<label><span class="mui-icon mui-icon-locked"></span></label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="密码">
+					<label>昵称</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入您的昵称">
 				</div>
 			</form>
 			<!--<form class="mui-input-group">

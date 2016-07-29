@@ -10,9 +10,24 @@
 		<style>
 			body,.mui-content{background-color:#fff;}
 			a{color:#E39E48;}
-			.logo{
-				width:100%;
-				display: block;
+			.headImg{
+				text-align:center;
+				margin-top:40px;
+			}
+			.headImg h3{
+				color:#E39E48;
+				font-weight:normal;
+				margin-bottom:20px;
+			}
+			.headImg .circle{
+				display:inline-block;
+				border-radius:50%;
+				border:1px solid #E39E48;
+				padding:5px;
+			}
+			.headImg .circle img{
+				width:120px;
+				display:block;
 			}
 			.area {
 				margin: 20px auto 0px auto;
@@ -42,6 +57,9 @@
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
 				width: 84%;
+			}
+			.mui-input-row .mui-input-clear~.mui-icon-clear{
+				top:16px;
 			}
 			.mui-checkbox input[type=checkbox],
 			.mui-radio input[type=radio] {
@@ -107,15 +125,18 @@
 
 	<body>
 		<div class="mui-content">
-			<div style="padding:0 100px;"><img src="images/login_09.png" alt="logo" class="logo" /></div>
+			<div class="headImg">
+				<h3>登录</h3>
+				<span class="circle"><img src="images/head.png" class="head" /></span>
+			</div>
 			<form id='login-form' class="mui-input-group mui-content-padded noline">
 				<div class="mui-input-row noline">
 					<label><span class="mui-icon mui-icon-person"></span></label>
-					<input id='account' type="tel" class="mui-input-clear mui-input" placeholder="用户名">
+					<input id='account' type="tel" class="mui-input-clear mui-input" placeholder="请输入手机号或用户名">
 				</div>
 				<div class="mui-input-row noline" style="margin-top:20px;">
 					<label><span class="mui-icon mui-icon-locked"></span></label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="密码">
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
 			</form>
 			<!--<form class="mui-input-group">

@@ -112,7 +112,6 @@
 			.mui-input-row .mui-input-clear~.mui-icon-clear{
 				top:16px;
 			}
-			#veriCode .mui-icon-clear{display: none;}
 		</style>
 
 	</head>
@@ -120,52 +119,38 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
-			<h1 class="mui-title">忘记密码</h1>
+			<h1 class="mui-title">设置密码</h1>
 		</header>
 		<div class="mui-content">
-			<form id='login-form' onsubmit="return false;" class="mui-input-group mui-content-padded noline">
+			<form id='login-form' class="mui-input-group mui-content-padded noline">
 				<div class="mui-input-row noline">
-					<label><span class="mui-icon mui-icon-person"></span></label>
-					<input id='account' type="tel" class="mui-input-clear mui-input" placeholder="手机号码">
+					<label><span class="mui-icon mui-icon-locked"></span></label>
+					<input id='account' type="password" class="mui-input-clear mui-input" placeholder="请输入6位以上组合密码">
 				</div>
 				<div class="mui-input-row noline" id="veriCode" style="margin-top:20px;">
 					<label><span class="mui-icon mui-icon-locked"></span></label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="验证码">
-					<button class="sendCode">发送验证码</button>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请再次确认您的密码">
 				</div>
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary" style="margin-top:20px;">完成</button>
 			</form>
-			<div class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">下一步</button>
-				<p style="text-align:center;margin-top:25px;">我们将会通过短信将验证码发送到您的手机上<br/>如需帮助，请联系客服<span style="color:#E39E49;">4008 123 999</span></p>
-				<!--<div class="link-area"><a id='reg'>注册新账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
-				</div>-->
-			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.enterfocus.js"></script>
 		<script src="js/app.js"></script>
-		<script>
+		<script type="text/javascript">
 			window.onload=function(){
-				var oBtn=document.querySelector('.sendCode');
-				var count=60,timer=null;
-				
-				oBtn.addEventListener('tap',function(){
-					var _this=this;
-					timer=setInterval(function(){
-						count--;
-						if(count<1){
-							clearInterval(timer);
-							_this.innerHTML='再次发送';
-							_this.style.color='#000';
-							_this.removeAttribute('disabled');
-							count=60;
-						}else{
-							_this.innerHTML=count+'秒';
-							_this.style.color='#E39E48';
-							_this.disabled='disabled';
-						}
-					},1000);
-				},false);
+				document.getElementById('login-form').onsubmit=function(){
+					var val1=document.getElementById('account').value;
+					var val2=document.getElementById('password').value;
+					
+					if(val1=='' || val2==''){
+						mui.toast('密码不能为空');
+						return false;
+					}else if(val1 != val2){
+						mui.toast('两次输入的密码不一致');
+						return false;
+					}
+				}
 			}
 		</script>
 	</body>
