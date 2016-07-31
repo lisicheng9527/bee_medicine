@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H53C7532A",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "蜜蜂中医app",/*应用名称，程序桌面图标名称*/
@@ -76,6 +76,7 @@
                 "keystore": "",/*Android应用打包使用的密钥库文件*/
                 "password": "",/*Android应用打包使用密钥库中证书的密码*/
                 "aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+                "ImmersedStatusbar":true,/*沉浸式状态栏*/
                "permissions": ["<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_CHECKIN_PROPERTIES\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>"]
 				/*使用Native.js调用原生安卓API需要使用到的系统权限*/
             },
@@ -149,5 +150,139 @@
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"images/login_51.png",
+					"images/login_53.png",
+					"images/login_09.png",
+					"js/jquery-1.12.1.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/login_47.png",
+					"images/login_49.png",
+					"register.html",
+					"forget.html",
+					"tabbar.html",
+					"person-edit.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"register.html": {
+				"resources": [
+					"index.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"forget.html": {
+				"resources": [
+					"index.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tabbar.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"css/app.css",
+					"css/iconfont.css",
+					"images/shuijiao.jpg",
+					"fonts/iconfont.woff",
+					"index.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/lesson.png",
+					"images/person.png",
+					"images/small_head.png",
+					"images/symptom.png",
+					"images/class.png",
+					"images/activity.png",
+					"images/inquiry.png",
+					"images/question.png",
+					"images/healthy.png",
+					"images/footBan.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"person-edit.html": {
+				"resources": [
+					"images/head.png",
+					"index.html",
+					"images/login_51.png",
+					"images/login_53.png",
+					"js/jquery-1.12.1.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/login_47.png",
+					"images/login_49.png"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"js/jquery.Jcrop.min.js",
+				"js/mui.picker.min.js",
+				"js/mui.dtpicker.js",
+				"js/mui.zoom.js",
+				"js/mui.poppicker.js",
+				"set-info.html",
+				"js/mui.previewimage.js",
+				"fonts/iconfont.ttf",
+				"js/city.data.js",
+				"js/mui.js",
+				"css/mui.picker.min.css",
+				"css/mui.imageviewer.css",
+				"js/mui.view.js",
+				"README.md",
+				"js/beecloud.js",
+				"js/mui.picker.js",
+				"js/mui.pullToRefresh.material.js",
+				"css/mui.listpicker.css",
+				"edit-paw.html",
+				"js/mui.lazyload.js",
+				"css/mui.css",
+				"js/city.data-3.js",
+				"js/script.js",
+				"css/mui.dtpicker.css",
+				"css/mui.picker.all.css",
+				"js/update.js",
+				"css/feedback-page.css",
+				"js/feedback.js",
+				"js/arttmpl.js",
+				"js/mui.imageViewer.js",
+				"js/ad.js",
+				"js/mui.lazyload.img.js",
+				"images/login_61.png",
+				"person-login.html",
+				"js/mui.listpicker.js",
+				"fonts/iconfont.svg",
+				"css/mui.poppicker.css",
+				"set-paw.html",
+				"js/feedback-page.js",
+				"js/mui.indexedlist.js",
+				"images/login_39.png",
+				"js/mui.pullToRefresh.js",
+				"css/img.css",
+				"images/login_31.png",
+				"js/jquery.min.js",
+				"css/mui.picker.css",
+				"css/mui.indexedlist.css",
+				"js/mui.picker.all.js",
+				"fonts/iconfont.eot",
+				"js/mui.locker.js"
+			]
+		}
+	}
 }
