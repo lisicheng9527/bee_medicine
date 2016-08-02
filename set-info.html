@@ -126,15 +126,19 @@
 			<form id='login-form' onsubmit="return false;" class="mui-input-group mui-content-padded noline">
 				<div class="mui-input-row noline">
 					<label>输入昵称</label>
-					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入您的昵称">
+					<input id='txtNickname' type="text" class="mui-input-clear mui-input" placeholder="请输入您的昵称">
+				</div>
+				<div class="mui-input-row noline" style="margin-top:20px;">
+					<label>输入手机</label>
+					<input id='txtUserName' type="tel" class="mui-input-clear mui-input" placeholder="请输入您的手机">
 				</div>
 				<div id="veriCode" class="mui-input-row noline" style="margin:20px 0;">
 					<label>输入密码</label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入6位以上字母或数字">
+					<input id='txtPassword' type="password" class="mui-input-clear mui-input" placeholder="请输入6位以上字母或数字">
 				</div>
 				<div class="mui-input-row noline">
 					<label>确认密码</label>
-					<input id='account' type="password" class="mui-input-clear mui-input" placeholder="请再次输入您的密码">
+					<input id='confirmPaw' type="password" class="mui-input-clear mui-input" placeholder="请再次输入您的密码">
 				</div>
 				<div class="mui-input-row mui-checkbox mui-left noline" style="background-color:#fff;">
 					<label style="font-size:14px;color:#666;">我同意蜜蜂中医用户使用协议</label>
@@ -152,15 +156,49 @@
 				</ul>
 			</form>-->
 			<div class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">完成</button>
+				<button id='btnLogin' class="mui-btn mui-btn-block mui-btn-primary">完成</button>
 				<p style="text-align:center;margin-top:25px;">注册即代表您已阅读并同意<br/><a href="#" style="color:#E39E48;">蜜蜂中医注册协议</a></p>
-				<div class="link-area"><a id='reg'>直接登录</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				<div class="link-area"><a href="index.html">直接登录</a> <span class="spliter">|</span> <a href="forget.html">忘记密码</a>
 				</div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
-		<script src="js/mui.enterfocus.js"></script>
+		<script src="js/jquery-1.12.1.min.js" type="text/javascript"></script>
 		<script src="js/app.js"></script>
+		<script type="text/javascript">
+			var agreement=document.querySelector('.agreement'); 
+
+			$("#btnLogin").click(function () {
+				if(!agreement.checked){
+					mui.toast('请同意蜜蜂中医用户协议');
+					return;
+				}else if($('#txtPassword').val()!=$('#confirmPaw').val()){
+					mui.toast('两次输入的密码不一致');
+					return;
+				}
+				$.ajax({
+					async: false,
+					type: "Get",
+					url: "http://123.207.122.136/Service.ashx?jsoncallback=?",
+					dataType: "jsonp",
+					data: { requesttype: "0105", username: $("#txtUserName").val(), nickname: $("#txtNickname").val(), password: $("#txtPassword").val(), requesttime: (new Date).getTime()},
+					success: function(data){
+						//判断是否注册成功 1是 0否
+						if(data.data[0]==1){
+							mui.alert('注册成功,页面正在跳转','蜜蜂中医');
+							setTimeout(function(){
+								window.location.href='index.html';
+							},1500);
+						}else{
+							mui.toast('注册失败,请检查昵称或手机号');
+						}
+					},
+					error: function(){
+						mui.toast('网络延迟，请稍后再试');
+					}
+				});
+			});
+		</script>
 	</body>
 
 </html>

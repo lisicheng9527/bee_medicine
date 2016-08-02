@@ -105,6 +105,20 @@
 				display: block;
 			}
 		</style>
+		<script type="text/javascript">
+			// H5 plus事件处理
+			function plusReady(){
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener("plusready",plusReady,false);
+			}
+			// 创建并显示新窗口
+			function openWebview(){
+				var w = plus.webview.open( "tabbar.html","slide-in-bottom" );
+			}
+		</script>
 
 	</head>
 
@@ -114,23 +128,13 @@
 			<form id='login-form' class="mui-input-group mui-content-padded noline">
 				<div class="mui-input-row noline">
 					<label><span class="mui-icon mui-icon-person"></span></label>
-					<input id='account' type="tel" class="mui-input-clear mui-input" placeholder="用户名">
+					<input id='txtUserName' type="tel" class="mui-input-clear mui-input" placeholder="用户名">
 				</div>
 				<div class="mui-input-row noline" style="margin-top:20px;">
 					<label><span class="mui-icon mui-icon-locked"></span></label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="密码">
+					<input id='txtPassword' type="password" class="mui-input-clear mui-input" placeholder="密码">
 				</div>
 			</form>
-			<!--<form class="mui-input-group">
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell">
-						自动登录
-						<div id="autoLogin" class="mui-switch">
-							<div class="mui-switch-handle"></div>
-						</div>
-					</li>
-				</ul>
-			</form>-->
 			<div class="mui-content-padded">
 				<button id='btnLogin' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
 				<p style="text-align:center;padding:10px 0;">或者使用以下账号一键登录</p>
@@ -140,13 +144,13 @@
 					<a href="#"><img src="images/login_51.png"/></a>
 					<a href="#"><img src="images/login_53.png"/></a>
 				</div>
-				<div class="link-area"><a href="tabbar.html" id='reg'>注册新账号</a> <span class="spliter">|</span> <a href="person-edit.html" id='forgetPassword'>忘记密码</a>
+				<div class="link-area"><a href="register.html" id='reg'>注册新账号</a> <span class="spliter">|</span> <a href="forget.html" id='forgetPassword'>忘记密码</a>
 				</div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/app.js"></script>
-		<script src="js/jquery-1.12.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.12.1.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			//用户登录
 			$("#btnLogin").click(function () {
@@ -157,29 +161,25 @@
 				$.ajax({
 					async: false,
 					type: "Get",
-					//url: "http://weixin.chinatelling.com/ERPApp/Service.ashx?jsoncallback=?",
-				   url: "http://119.29.111.221/Service.ashx?jsoncallback=?",
-			
+					url: "http://123.207.122.136/Service.ashx?jsoncallback=?",
 					dataType: "jsonp",
-					data: { requesttype: "0101", conn: "172.20.0.208", username: $("#account").val(), password: $("#password").val(), requesttime: (new Date).getTime() },
-					success: OnSuccess,
-					error: OnError
+					data: { requesttype: "0101", username: $("#txtUserName").val(), password: $("#txtPassword").val(), requesttime: (new Date).getTime() },
+					success: function OnSuccess(data){
+						if(data.code=='201'){
+							mui.alert(data.message, '蜜蜂中医');
+						}else{
+							var userName=data.data[0].UserInfo[0].NICKNAME;
+							mui.alert('欢迎回来,'+userName+'','蜜蜂中医');
+							openWebview();
+						}
+					},
+					error: function OnError(){
+						mui.toast('网络延迟，请稍后再试');
+					}
 				});
-			
 				return false;
 			});
 			
-			function OnSuccess(data){
-				if(data.code=='201'){
-					mui.alert(data.message, '蜜蜂中医');
-				}else{
-					mui.alert('登录成功', '蜜蜂中医');
-				}
-			}
-			
-			function OnError(){
-				console.log('网络延迟，请稍后再试');
-			}
 		</script>
 	</body>
 
