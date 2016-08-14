@@ -167,7 +167,12 @@
 					"register.html",
 					"forget.html",
 					"tabbar.html",
-					"person-edit.html"
+					"person-edit.html",
+					"images/logo.png",
+					"images/weixin.png",
+					"images/qq.png",
+					"images/weibo.png",
+					"images/login_bg.jpg"
 				],
 				"refer": [],
 				"priority": 0

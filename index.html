@@ -9,39 +9,43 @@
 		<!--<link href="css/style.css" rel="stylesheet" />-->
 		<style>
 			body,.mui-content{background-color:#fff;}
-			a{color:#E39E48;}
-			.logo{
-				width:150px;
-				display: inline-block;
+			input::-webkit-input-placeholder{
+				text-align:center;
 			}
-			.area {
-				margin: 20px auto 0px auto;
+			a{color:#E39E48;}
+			.loginCon{
+				position: relative;
+				margin-bottom: 50px;
+			}
+			.logo{
+				width: 90px;
+				height: 90px;
+				position: absolute;
+				bottom: -30px;
+				left: 50%;
+				margin-left: -45px;
+				z-index: 2;
 			}
 			.mui-input-group .mui-input-row{
 				height:50px;
-				background-color:#F2F2F2;
+				background-color:#EFF4F5;
+				border-radius: 40px;
 			}
 			.mui-input-row input{
 				height:50px;
+				text-align:center;
 			}
 			.mui-btn-primary{
-				width:100%;
-				padding:10px 0;
-				background-color:#E39E48;
-				border:1px solid #E39E48;
+				width: 100%;
+				display: block;
+				padding: 10px 0;
+				border-radius: 30px;
+				background-color:#57B14B;
+				border:1px solid #57B14B;
 			}
 			.mui-btn-primary:active{
 				background-color:#3EAD18 !important;
 				border-color:#3EAD18 !important;
-			}
-			.mui-input-group label {
-				width: 14%;
-				padding:14px 15px;
-			}
-			.mui-input-row label~input,
-			.mui-input-row label~select,
-			.mui-input-row label~textarea {
-				width: 84%;
 			}
 			.mui-input-row .mui-input-clear~.mui-icon-clear{
 				top:16px;
@@ -51,45 +55,17 @@
 				top: 6px;
 			}
 			.mui-content-padded {
-				margin-top: 25px;
-			}
-			.mui-btn {
-				padding: 10px;
+				margin:20px 25px;
 			}
 			.link-area {
-				display: block;
 				margin-top: 25px;
 				text-align: center;
 			}
-			.spliter {
-				color: #E39E48;
-				padding: 0px 8px;
+			.link-area a{
+				font-size: 14px;
+				margin: 0 5px;
 			}
-			.oauth-area {
-				position: absolute;
-				bottom: 20px;
-				left: 0px;
-				text-align: center;
-				width: 100%;
-				padding: 0px;
-				margin: 0px;
-			}
-			.oauth-area .oauth-btn {
-				display: inline-block;
-				width: 50px;
-				height: 50px;
-				background-size: 30px 30px;
-				background-position: center center;
-				background-repeat: no-repeat;
-				margin: 0px 20px;
-				/*-webkit-filter: grayscale(100%); */
-				border: solid 1px #ddd;
-				border-radius: 25px;
-			}
-			.oauth-area .oauth-btn:active {
-				border: solid 1px #aaa;
-			}
-			.noline:after{
+			.noline:after,.noline:before{
 				height:0 !important;
 			}
 			.others{
@@ -124,27 +100,32 @@
 
 	<body>
 		<div class="mui-content">
-			<div style="text-align:center;"><img src="images/login_09.png" alt="logo" class="logo" /></div>
+			<div class="loginCon">
+				<img src="images/login_bg.jpg" alt="loginBg" width="100%" />
+				<img src="images/logo.png" alt="logo" class="logo" />
+			</div>
 			<form id='login-form' class="mui-input-group mui-content-padded noline">
 				<div class="mui-input-row noline">
-					<label><span class="mui-icon mui-icon-person"></span></label>
-					<input id='txtUserName' type="tel" class="mui-input-clear mui-input" placeholder="用户名">
+					<input id='txtUserName' type="tel" class="mui-input-clear mui-input" placeholder="请输入手机号或用户名">
 				</div>
 				<div class="mui-input-row noline" style="margin-top:20px;">
-					<label><span class="mui-icon mui-icon-locked"></span></label>
-					<input id='txtPassword' type="password" class="mui-input-clear mui-input" placeholder="密码">
+					<input id='txtPassword' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
 			</form>
-			<div class="mui-content-padded">
+			<div class="mui-content-padded" style="padding: 0 50px;">
 				<button id='btnLogin' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+			</div>
+			<div class="moreLogin">
 				<p style="text-align:center;padding:10px 0;">或者使用以下账号一键登录</p>
 				<div class="others">
-					<a href="#"><img src="images/login_47.png"/></a>
-					<a href="#"><img src="images/login_49.png"/></a>
-					<a href="#"><img src="images/login_51.png"/></a>
-					<a href="#"><img src="images/login_53.png"/></a>
+					<a href="#"><img src="images/weixin.png"/></a>
+					<a href="#"><img src="images/qq.png"/></a>
+					<a href="#"><img src="images/weibo.png"/></a>
 				</div>
-				<div class="link-area"><a href="register.html" id='reg'>注册新账号</a> <span class="spliter">|</span> <a href="forget.html" id='forgetPassword'>忘记密码</a>
+				<div class="link-area">
+					<p style="text-align:center;">您还可以</p>
+					<a href="forget.html" id='forgetPassword'>忘记密码</a>
+					<a href="register.html" id='reg'>注册新账号</a> 
 				</div>
 			</div>
 		</div>
@@ -152,33 +133,45 @@
 		<script src="js/app.js"></script>
 		<script src="js/jquery-1.12.1.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			//用户登录
-			$("#btnLogin").click(function () {
-				if($("#account").val()==''||$("#password").val()==''){
-					mui.toast('用户名或密码不能为空');
-					return;
-				}
-				$.ajax({
-					async: false,
-					type: "Get",
-					url: "http://123.207.122.136/Service.ashx?jsoncallback=?",
-					dataType: "jsonp",
-					data: { requesttype: "0101", username: $("#txtUserName").val(), password: $("#txtPassword").val(), requesttime: (new Date).getTime() },
-					success: function OnSuccess(data){
-						if(data.code=='201'){
-							mui.alert(data.message, '蜜蜂中医');
-						}else{
-							var userName=data.data[0].UserInfo[0].NICKNAME;
-							mui.alert('欢迎回来,'+userName+'','蜜蜂中医');
-							openWebview();
-						}
-					},
-					error: function OnError(){
-						mui.toast('网络延迟，请稍后再试');
+			
+			$(function(){
+				
+				//用户登录
+				$("#btnLogin").click(function () {
+					if($("#txtUserName").val()=='' || $("#txtPassword").val()==''){
+						mui.toast('用户名或密码不能为空');
+						return;
 					}
+					
+					$(this).html("<span class='mui-spinner'></span>");
+					$(this).css('disabled',true);
+					$.ajax({
+						async: false,
+						type: "Get",
+						url: "http://123.207.122.136/Service.ashx?jsoncallback=?",
+						dataType: "jsonp",
+						data: { requesttype: "0101", username: $("#txtUserName").val(), password: $("#txtPassword").val(), requesttime: (new Date).getTime() },
+						success: function OnSuccess(data){
+							if(data.code=='201'){
+								mui.alert(data.message, '蜜蜂中医');
+							}else{
+								var userName=data.data[0].UserInfo[0].NICKNAME;
+								mui.alert('欢迎回来,'+userName+'','蜜蜂中医');
+								openWebview();
+							}
+							$('#btnLogin').html("登录");
+							$('#btnLogin').removeAttr('disabled');
+						},
+						error: function OnError(){
+							mui.toast('网络延迟，请稍后再试');
+							$('#btnLogin').html("登录");
+							$('#btnLogin').removeAttr('disabled');
+						}
+					});
+					return false;
 				});
-				return false;
 			});
+			
 			
 		</script>
 	</body>
