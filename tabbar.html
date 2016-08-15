@@ -26,6 +26,10 @@
 				/* iOS 4.1- */
 			}
 			
+			.mui-bar-tab{
+				-webkit-box-shadow: 0px 0px 5px rgb(210, 210, 210);
+				background-color: #fff;
+			}
 			.title {
 				margin: 20px 15px 10px;
 				color: #6d6d72;
@@ -79,8 +83,8 @@
 			
 			.searchBox .mui-icon{
 				position:absolute;
-				top:5px;
-				right:10px;
+				top:6px;
+				left:8px;
 				color:#888888;
 			}
 			
@@ -119,7 +123,7 @@
 			.searchBox .seaBtn{
 				height:100%;
 				padding:0;
-				border-radius:18px;
+				border-radius:6px;
 				outline:none;
 				font-size:14px;
 				text-align:center;
@@ -129,7 +133,6 @@
 			.menuBar{
 				display:box;
 				display: -webkit-box;
-				margin:6px 0;
 			}
 			.menuBar p{
 				margin:0;
@@ -139,13 +142,26 @@
 				-webkit-box-flex: 1;
 				background-color:#fff;
 				margin-right:1px;
-				padding:12px 0 8px;
+				padding:12px 0 30px;
+				position: relative;
+			}
+			.menuBar .smTit{
+				color: #303030;
+			}
+			.menuBar .smTits{
+				width: 100%;
+				left: 0;
+				position: absolute;
+				bottom: 10px;
+				font-size: 12px;
+				color: #8f8f94;
 			}
 			.menuBar .find{
 				-webkit-box-flex: 1;
 				text-align:center;
 				background-color:#fff;
-				padding:12px 0 8px;
+				padding:12px 0 30px;
+				position: relative;
 			}
 			.mainCon{
 				display:box;
@@ -250,6 +266,26 @@
 				display: inline-block;
 				background-color:#E39E48;
 			}
+			
+			.freeDiagnose{
+				overflow: hidden;
+				margin:6px 0;
+				background-color: #fff;
+			}
+			.freeDiagnose ul li{
+				width: 50%;
+				padding: 8px 0;
+				float: left;
+				text-align:center;
+				list-style-type: none;
+			}
+			.freeDiagnose ul li:nth-child(1n+1){
+				border-bottom: 1px solid #6c6c6c;
+			}
+			.freeDiagnose .diagName{
+				color:#6e6e6e;
+			}
+			
 		</style>
 	</head>
 
@@ -342,12 +378,43 @@
 				<div class="menuBar">
 					<div class="lesson">
 						<img src="images/lesson.png" width="40" />
-						<p>找课程</p>
+						<p class="smTit">找课程</p>
+						<span class="smTits">医疗知识、疑难杂症</span>
 					</div>
 					<div class="find">
-						<img src="images/person.png" width="30" />
-						<p>找高手</p>
+						<img src="images/person.png" width="40" />
+						<p class="smTit">找高手</p>
+						<span class="smTits">已入驻<label style="color:#c81111;">54</label>名医</span>
 					</div>
+				</div>
+				
+				<div class="freeDiagnose">
+					<ul>
+						<li>
+							<a href="#">
+								<span class="diagName">快速咨询</span>
+								<img src="images/quick_icon.png" width="20" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/teachers.png" width="20" />
+								<span class="diagName">按老师</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="diagName">按症状</span>
+								<img src="images/diagnose.png" width="20" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/public.png" width="20" />
+								<span class="diagName">快速咨询</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 				
 				<div class="mainCon">
