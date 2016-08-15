@@ -270,20 +270,50 @@
 			.freeDiagnose{
 				overflow: hidden;
 				margin:6px 0;
+				position: relative;
 				background-color: #fff;
 			}
 			.freeDiagnose ul li{
 				width: 50%;
-				padding: 8px 0;
+				padding: 14px 0 11px;
 				float: left;
 				text-align:center;
 				list-style-type: none;
 			}
-			.freeDiagnose ul li:nth-child(1n+1){
-				border-bottom: 1px solid #6c6c6c;
+			.freeDiagnose ul li:nth-child(odd){
+				padding-right: 30px;
+			}
+			.freeDiagnose ul li:nth-child(even){
+				padding-left: 30px;
+			}
+			.freeDiagnose ul li:first-child{
+				border-bottom: 1px solid #EAEAEA;
+			}
+			.freeDiagnose ul li:nth-child(2){
+				border-bottom: 1px solid #EAEAEA;
+			}
+			.freeDiagnose ul li:nth-child(4){
+				padding-left: 40px;
 			}
 			.freeDiagnose .diagName{
 				color:#6e6e6e;
+				font-size: 14px;
+				vertical-align: top;
+			}
+			.redCross{
+				width: 98px;
+				height: 98px;
+				border-radius: 50%;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				text-align: center;
+				background-color: #fff;
+				-webkit-box-shadow: 0px 0px 12px rgba(132, 132, 132, 0.43);
+				margin-left: -49px;
+			}
+			.cross{
+				margin-top: 25px;
 			}
 			
 		</style>
@@ -415,6 +445,10 @@
 							</a>
 						</li>
 					</ul>
+					<a href="#" class="redCross">
+						<img src="images/cross.png" width="30" class="cross" />
+						<p style="font-size: 12px;">免费义诊</p>
+					</a>
 				</div>
 				
 				<div class="mainCon">
