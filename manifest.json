@@ -142,11 +142,11 @@
                     }
                 },
                 "android": {
-                    "mdpi": "C:/Users/LiSiCheng/Desktop/微管家/蜜蜂中医/images/login_09.png", /*普通屏启动图片，分辨率：240x282*/
-                    "ldpi": "C:/Users/LiSiCheng/Desktop/微管家/蜜蜂中医/images/login_09.png", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi": "C:/Users/LiSiCheng/Desktop/微管家/蜜蜂中医/images/login_09.png", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi": "C:/Users/LiSiCheng/Desktop/微管家/蜜蜂中医/images/login_09.png", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi": "C:/Users/LiSiCheng/Desktop/微管家/蜜蜂中医/images/login_09.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
+                     /*普通屏启动图片，分辨率：240x282*/
+                     /*大屏启动图片，分辨率：320x442*/
+                     /*高分屏启动图片，分辨率：480x762*/
+                     /*720P高分屏启动图片，分辨率：720x1242*/
+                    /*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
         }
@@ -172,7 +172,8 @@
 					"images/weixin.png",
 					"images/qq.png",
 					"images/weibo.png",
-					"images/login_bg.jpg"
+					"images/login_bg.jpg",
+					"tab-webview-main.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -190,7 +191,8 @@
 			},
 			"forget.html": {
 				"resources": [
-					"index.html"
+					"index.html",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -217,9 +219,15 @@
 					"images/inquiry.png",
 					"images/question.png",
 					"images/healthy.png",
-					"images/footBan.png"
+					"images/footBan.png",
+					"tabbar-with-home.html"
 				],
-				"refer": [],
+				"refer": [
+					"tabbar-with-city.html",
+					"tabbar-with-mine.html",
+					"tabbar-with-healthy.html",
+					"tabbar-with-chat.html"
+				],
 				"priority": 0
 			},
 			"person-edit.html": {
@@ -234,6 +242,91 @@
 					"css/mui.min.css",
 					"images/login_47.png",
 					"images/login_49.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tab-webview-main.html": {
+				"resources": [
+					"tab-webview-subpage-about.html",
+					"fonts/mui.ttf",
+					"index.html"
+				],
+				"refer": [
+					"tab-webview-subpage-setting.html",
+					"tab-webview-subpage-chat.html",
+					"tab-webview-subpage-contact.html"
+				],
+				"priority": 0
+			},
+			"tabbar-with-mine.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"images/mine8.png",
+					"images/mine7.png",
+					"images/mine2.png",
+					"images/mine6.png",
+					"images/mine10.png",
+					"images/mine5.png",
+					"images/mine4.png",
+					"images/mine1.png",
+					"images/mine9.png",
+					"images/mine3.png",
+					"images/head.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tabbar-with-home.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/pro_head1.jpg",
+					"images/footBan.jpg",
+					"images/muwu.jpg",
+					"images/pro_head2.jpg",
+					"images/shuijiao.jpg",
+					"images/cross.png",
+					"images/food.jpg",
+					"images/pro_head3.jpg",
+					"images/public.png",
+					"images/yuantiao.jpg",
+					"images/pro_head4.jpg",
+					"images/lesson.png",
+					"images/quick_icon.png",
+					"images/person.png",
+					"images/teachers.png",
+					"images/diagnose.png",
+					"images/heal.jpg",
+					"images/lessonVideo.jpg",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tabbar-with-healthy.html": {
+				"resources": [
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tabbar-with-chat.html": {
+				"resources": [
+					"images/comment.png",
+					"images/good.png",
+					"images/chatPic.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"images/head.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tabbar-with-city.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>蜜蜂中医</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			*{margin: 0; padding: 0;}
+			.topCon{
+				background-color: #fff;
+				min-height: 210px;
+			}
+			.topCon .bgBox{
+				min-height: 80px;
+				background-color: #E68019;
+				position: relative;
+			}
+			.bgBox .head{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left: 50%;
+				bottom: -50px;
+				margin-left: -50px;
+				border-radius: 50%;
+				box-shadow: 0px 5px 10px #929292;
+			}
+			.userType{
+				margin-top: 60px;
+				text-align: center;
+			}
+			.userName{
+				color: #333;
+				font-weight: normal;
+			}
+			.userType span{
+				color: #8C8C8C;
+				display: inline-block;
+				margin: 0 6px;
+				font-size: 12px;
+			}
+			.menuList{
+				margin-top: 20px;
+			}
+			.mui-table-view .mui-media-object{
+				max-width: 30px;
+				height: 30px;
+			}
+			.mui-table-view .mui-media-object.mui-pull-left{
+				margin-right: 20px;
+			}
+			.mui-media-body{
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">设置</h1>
+		</header>-->
+		<div class="mui-content">
+			<div class="topCon">
+				<div class="bgBox">
+					<img src="images/head.png" class="head" />
+				</div>
+				<div class="userType">
+					<h4 class="userName">每逢佳节倍思亲</h4>
+					<span>健康值：56</span>
+					<span>用户类别：VIP</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="menuList">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a href="person-edit.html" class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine1.png">
+						<div class="mui-media-body">我的账户</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine2.png">
+						<div class="mui-media-body">
+							我的消息
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine3.png">
+						<div class="mui-media-body">
+							我的收藏
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine4.png">
+						<div class="mui-media-body">
+							发帖回帖
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine5.png">
+						<div class="mui-media-body">
+							我的订单
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine6.png">
+						<div class="mui-media-body">
+							高手认证
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine7.png">
+						<div class="mui-media-body">
+							我的课程
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine8.png">
+						<div class="mui-media-body">
+							中医培养
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine9.png">
+						<div class="mui-media-body">
+							我的顾问
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/mine10.png">
+						<div class="mui-media-body">
+							关于我们
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		document.getElementById("about").addEventListener('tap',function () {
+			//获得主页面的webview
+			var main = plus.webview.currentWebview().parent();
+			//触发主页面的gohome事件
+			mui.fire(main,'gohome');
+		});
+	</script>
+</html>

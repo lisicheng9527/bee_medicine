@@ -1,95 +1,180 @@
 {
-	"index.html": {
-		"resources": [
-			"images/login_51.png",
-			"images/login_53.png",
-			"images/login_09.png",
-			"js/jquery-1.12.1.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"images/login_47.png",
-			"images/login_49.png",
-			"register.html",
-			"forget.html",
-			"tabbar.html",
-			"person-edit.html",
-			"images/logo.png",
-			"images/weixin.png",
-			"images/qq.png",
-			"images/weibo.png",
-			"images/login_bg.jpg"
-		],
-		"refer": [
-			"register.html",
-			"forget.html",
-			"tabbar.html",
-			"person-edit.html"
-		]
-	},
-	"register.html": {
-		"resources": [
-			"index.html",
-			"js/jquery-1.12.1.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"forget.html": {
-		"resources": [
-			"index.html"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"tabbar.html": {
-		"resources": [
-			"images/cbd.jpg",
-			"images/muwu.jpg",
-			"images/yuantiao.jpg",
-			"css/app.css",
-			"css/iconfont.css",
-			"images/shuijiao.jpg",
-			"fonts/iconfont.woff",
-			"index.html",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"images/lesson.png",
-			"images/person.png",
-			"images/small_head.png",
-			"images/symptom.png",
-			"images/class.png",
-			"images/activity.png",
-			"images/inquiry.png",
-			"images/question.png",
-			"images/healthy.png",
-			"images/footBan.png"
-		],
-		"refer": [
-			"index.html"
-		]
-	},
-	"person-edit.html": {
-		"resources": [
-			"images/head.png",
-			"index.html",
-			"images/login_51.png",
-			"images/login_53.png",
-			"js/jquery-1.12.1.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"images/login_47.png",
-			"images/login_49.png"
-		],
-		"refer": [
-			"index.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "images/login_51.png",
+      "images/login_53.png",
+      "images/login_09.png",
+      "js/jquery-1.12.1.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/login_47.png",
+      "images/login_49.png",
+      "register.html",
+      "forget.html",
+      "tabbar.html",
+      "person-edit.html",
+      "images/logo.png",
+      "images/weixin.png",
+      "images/qq.png",
+      "images/weibo.png",
+      "images/login_bg.jpg",
+      "tab-webview-main.html"
+    ],
+    "refer": [
+      "register.html",
+      "forget.html",
+      "tabbar.html",
+      "person-edit.html",
+      "tab-webview-main.html"
+    ]
+  },
+  "register.html": {
+    "resources": [
+      "index.html",
+      "js/jquery-1.12.1.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "forget.html": {
+    "resources": [
+      "index.html",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "tabbar.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "css/app.css",
+      "css/iconfont.css",
+      "images/shuijiao.jpg",
+      "fonts/iconfont.woff",
+      "index.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/lesson.png",
+      "images/person.png",
+      "images/small_head.png",
+      "images/symptom.png",
+      "images/class.png",
+      "images/activity.png",
+      "images/inquiry.png",
+      "images/question.png",
+      "images/healthy.png",
+      "images/footBan.png",
+      "tabbar-with-home.html"
+    ],
+    "refer": [
+      "index.html",
+      "tabbar-with-city.html",
+      "tabbar-with-mine.html",
+      "tabbar-with-healthy.html",
+      "tabbar-with-home.html",
+      "tabbar-with-chat.html"
+    ]
+  },
+  "person-edit.html": {
+    "resources": [
+      "images/head.png",
+      "index.html",
+      "images/login_51.png",
+      "images/login_53.png",
+      "js/jquery-1.12.1.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/login_47.png",
+      "images/login_49.png"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "tab-webview-main.html": {
+    "resources": [
+      "tab-webview-subpage-about.html",
+      "fonts/mui.ttf",
+      "index.html"
+    ],
+    "refer": [
+      "tab-webview-subpage-about.html",
+      "tab-webview-subpage-setting.html",
+      "tab-webview-subpage-chat.html",
+      "tab-webview-subpage-contact.html",
+      "index.html"
+    ]
+  },
+  "tabbar-with-mine.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "images/mine8.png",
+      "images/mine7.png",
+      "images/mine2.png",
+      "images/mine6.png",
+      "images/mine10.png",
+      "images/mine5.png",
+      "images/mine4.png",
+      "images/mine1.png",
+      "images/mine9.png",
+      "images/mine3.png",
+      "images/head.png"
+    ]
+  },
+  "tabbar-with-home.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/pro_head1.jpg",
+      "images/footBan.jpg",
+      "images/muwu.jpg",
+      "images/pro_head2.jpg",
+      "images/shuijiao.jpg",
+      "images/cross.png",
+      "images/food.jpg",
+      "images/pro_head3.jpg",
+      "images/public.png",
+      "images/yuantiao.jpg",
+      "images/pro_head4.jpg",
+      "images/lesson.png",
+      "images/quick_icon.png",
+      "images/person.png",
+      "images/teachers.png",
+      "images/diagnose.png",
+      "images/heal.jpg",
+      "images/lessonVideo.jpg",
+      "fonts/mui.ttf"
+    ]
+  },
+  "tabbar-with-healthy.html": {
+    "resources": [
+      "fonts/mui.ttf"
+    ]
+  },
+  "tabbar-with-chat.html": {
+    "resources": [
+      "images/comment.png",
+      "images/good.png",
+      "images/chatPic.jpg",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "images/head.png"
+    ]
+  },
+  "tabbar-with-city.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ]
+  }
 }

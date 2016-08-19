@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>蜜蜂中医</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<!--字体图标的css-->
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			*{margin:0; padding:0;}
+			@font-face {
+				font-family: 'iconfont';
+				src: url('fonts/iconfont.eot');
+				/* IE9*/
+				src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+				url('fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('fonts/iconfont.svg#iconfont') format('svg');
+				/* iOS 4.1- */
+			}
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.iconfont {
+				font-family: "iconfont" !important;
+				font-size: 14px;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+				-webkit-text-stroke-width: 0.2px;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			.topBar {
+				width: 100%;
+				position: fixed;
+				top: 0;
+				z-index: 200;
+				padding:10px 0;
+				background-color: rgb(227,158,72);
+			}
+			.topBar .iconTxt{
+				margin-top: -3px;
+				padding: 0;
+				text-align: center;
+				color: #fff;
+				font-size: 12px;
+			}
+			
+			.topBar .searchBox{
+				height: 38px;
+				margin: 0 50px;
+				position:relative;
+			}
+			
+			.searchBox .mui-icon{
+				position:absolute;
+				top:8px;
+				left:8px;
+				color:#888888;
+			}
+			
+			.scanBox {
+				position: absolute;
+				top: 11px;
+				left: 0;
+				width: 50px;
+				height: 30px;
+				text-align:center;
+			}
+			
+			.scanBox .iconfont{
+				font-size:22px;
+				color:#fff;
+				display: inline-block;
+			}
+			
+			.menuBox {
+				position: absolute;
+				top: 10px;
+				right: 0;
+				width: 50px;
+				height: 30px;
+				text-align:center;
+			}
+			
+			.menuBox .mui-icon{
+				font-size:22px;
+				display:inline-block;
+				color:#fff;
+			}
+			
+			.searchBox .seaBtn{
+				height:100%;
+				padding:0;
+				border-radius:6px;
+				outline:none;
+				font-size:14px;
+				text-align:center;
+				border:none;
+			}
+			
+			.menuBar{
+				display:box;
+				display: -webkit-box;
+			}
+			.menuBar p{
+				margin:0;
+			}
+			.menuBar .lesson{
+				text-align:center;
+				-webkit-box-flex: 1;
+				background-color:#fff;
+				margin-right:1px;
+				padding:12px 0 30px;
+				position: relative;
+			}
+			.menuBar .smTit{
+				color: #303030;
+			}
+			.menuBar .smTits{
+				width: 100%;
+				left: 0;
+				position: absolute;
+				bottom: 10px;
+				font-size: 12px;
+				color: #8f8f94;
+			}
+			.menuBar .find{
+				-webkit-box-flex: 1;
+				text-align:center;
+				background-color:#fff;
+				padding:12px 0 30px;
+				position: relative;
+			}
+			.mainCon{
+				display:box;
+				display: -webkit-box;
+			}
+			.mainCon .leftCon{
+				-webkit-box-flex: 1;
+				margin-right:3px;
+				background-color:#fff;
+				padding:0 7px;
+			}
+			.mainCon .rightCon{
+				-webkit-box-flex: 1;
+				margin-left:3px;
+				background-color:#fff;
+			}
+			.tallHand{
+				text-align:center;
+				padding:10px 0;
+			}
+			.tallHand img{
+				vertical-align: middle;
+			}
+			.tallHand label{
+				font-size:14px;
+				color:#8f8f94;
+			}
+			
+			.expert ul{
+				overflow: hidden;
+				border-bottom:1px solid #efeff4;
+			}
+			.expert ul li{
+				list-style-type: none;
+				text-align:center;
+				width:50%;
+				margin-bottom:10px;
+				float:left;
+			}
+
+			.expert .expertHead{
+				display: inline-block;
+				position:relative;
+				top:2px;
+			}
+			.expert .expertName{
+				display: inline-block;
+				font-size:10px;
+			}
+			.expert .expertName p{
+				font-size:12px;
+				color:#333;
+				margin-bottom:2px;
+			}
+			.expert .expertName span{
+				font-size: 12px;
+			}
+			.expert .expertName h6{
+				margin:0;
+				font-size:10px;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				overflow:hidden;
+			}
+			.inquiry ul{
+				overflow:hidden;
+			}
+			.inquiry li{
+				list-style-type:none;
+				width:50%;
+				border-top:1px solid #efeff4;
+				border-right:1px solid #efeff4;
+				text-align:center;
+				padding:10px 22px 30px;
+				position:relative;
+				float:left;
+			}
+			.inquiry li:nth-child(2n+2){
+				border-right:none;
+			}
+			.inquiry li h5{
+				position:absolute;
+				left:0;
+				right:0;
+				bottom:8px;
+				text-align:center;
+				font-size:12px;
+			}
+			.healthyItem  ul li{
+				font-size:10px;
+				text-align:center;
+				color:#8f8f94;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				overflow:hidden;
+			}
+			.healthyItem  ul li i{
+				width:5px;
+				height:5px;
+				margin-right:6px;
+				border-radius:50%;
+				display: inline-block;
+				background-color:#E39E48;
+			}
+			
+			.freeDiagnose{
+				overflow: hidden;
+				margin:6px 0;
+				position: relative;
+				background-color: #fff;
+			}
+			.freeDiagnose ul li{
+				width: 50%;
+				padding: 14px 0 11px;
+				float: left;
+				text-align:center;
+				list-style-type: none;
+			}
+			.freeDiagnose ul li:nth-child(odd){
+				padding-right: 30px;
+			}
+			.freeDiagnose ul li:nth-child(even){
+				padding-left: 30px;
+			}
+			.freeDiagnose ul li:first-child{
+				border-bottom: 1px solid #EAEAEA;
+			}
+			.freeDiagnose ul li:nth-child(2){
+				border-bottom: 1px solid #EAEAEA;
+			}
+			.freeDiagnose ul li:nth-child(4){
+				padding-left: 40px;
+			}
+			.freeDiagnose .diagName{
+				color:#6e6e6e;
+				font-size: 14px;
+				vertical-align: top;
+			}
+			.redCross{
+				width: 98px;
+				height: 98px;
+				border-radius: 50%;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				text-align: center;
+				background-color: #fff;
+				-webkit-box-shadow: 0px 0px 12px rgba(132, 132, 132, 0.43);
+				margin-left: -49px;
+			}
+			.cross{
+				margin-top: 25px;
+			}
+			
+			.hotProfessor{
+				background-color: #fff;
+				margin: 6px 0;
+			}
+			.hotTits{
+				padding: 6px 0;
+				border-bottom: 1px solid #EAEAEA;
+				position: relative;
+			}
+			.hotTits .more{
+				position: absolute;
+				left: 90px;
+				top: 6px;
+				font-size: 14px;
+				color: #c7bad4;
+			}
+			.hotTits p{
+				border-left: 5px solid #7738BA;
+				padding-left: 15px;
+				margin: 0;
+			}
+			.hotProfessor .proList{
+				list-style-type: none;
+				display: -webkit-flex;
+			}
+			.proList li{
+				text-align: center;
+				padding:15px 15px 10px;
+			}
+			.proList .proHead img{
+				display: block;
+				border: 1px solid #EFF4F5;
+				border-radius: 50%;
+			}
+			.proList li h3{
+				font-weight: normal;
+				color: #6e6e6e;
+				margin-top: 10px;
+				font-size: 14px;
+			}
+			
+			.lessVedio{
+				margin-top: 2px;
+				background-color: #fff;
+			}
+			.mui-table-view .mui-media-object{
+				max-width: 80px;
+				height: 80px;
+			}
+			.nowrap{
+				white-space: normal;
+				font-size: 14px;
+				line-height: 18px;
+				margin-top: 5px;
+			}
+			.mui-table-view:before{
+				height: 0;
+			}
+			.mui-table-view-cell:after{
+				left: 0;
+				background-color: #EAEAEA;
+			}
+			
+			.healProblem{
+				background-color: #fff;
+				margin: 6px 0;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider" style="margin-top: 58px;">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/yuantiao.jpg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/shuijiao.jpg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/muwu.jpg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/cbd.jpg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/yuantiao.jpg">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/shuijiao.jpg">
+						</a>
+					</div>
+				</div>
+
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+
+			<div class="topBar">
+				<div class="scanBox">
+					<span class="iconfont">&#xe65d;</span>
+					<p class="iconTxt">扫呀扫</p>
+				</div>
+				<div class="searchBox">
+					<input type="text" class="seaBtn" placeholder="搜高手、处方、案例">
+					<span class="mui-icon mui-icon-search"></span>
+				</div>
+				<div class="menuBox">
+					<span class="mui-icon mui-icon-bars"></span>
+					<p class="iconTxt">菜单</p>
+				</div>
+			</div>
+			
+			<div class="menuBar">
+				<div class="lesson">
+					<img src="images/lesson.png" width="40" />
+					<p class="smTit">找课程</p>
+					<span class="smTits">医疗知识、疑难杂症</span>
+				</div>
+				<div class="find">
+					<img src="images/person.png" width="40" />
+					<p class="smTit">找高手</p>
+					<span class="smTits">已入驻<label style="color:#c81111;">54</label>名医</span>
+				</div>
+			</div>
+			
+			<div class="freeDiagnose">
+				<ul>
+					<li>
+						<a href="#">
+							<span class="diagName">快速咨询</span>
+							<img src="images/quick_icon.png" width="20" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/teachers.png" width="20" />
+							<span class="diagName">按老师</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="diagName">按症状</span>
+							<img src="images/diagnose.png" width="20" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/public.png" width="20" />
+							<span class="diagName">快速咨询</span>
+						</a>
+					</li>
+				</ul>
+				<a href="#" class="redCross">
+					<img src="images/cross.png" width="30" class="cross" />
+					<p style="font-size: 12px;">免费义诊</p>
+				</a>
+			</div>
+			
+			<div class="hotProfessor">
+				<div class="hotTits">
+					<p>热门高手</p>
+				</div>
+				
+				<ul class="proList">
+					<li>
+						<a href="#">
+							<div class="proHead">
+								<img src="images/pro_head1.jpg" width="100%" />
+							</div>
+							<h3>金老师</h3>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="proHead">
+								<img src="images/pro_head2.jpg" width="100%" />
+							</div>
+							<h3>王老师</h3>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="proHead">
+								<img src="images/pro_head3.jpg" width="100%" />
+							</div>
+							<h3>邵老师</h3>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="proHead">
+								<img src="images/pro_head4.jpg" width="100%" />
+							</div>
+							<h3>王老师</h3>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="footBan">
+				<img src="images/footBan.jpg" width="100%" />
+			</div>
+			
+			<div class="lessVedio">
+				<div class="hotTits">
+					<p>课程视频</p>
+				</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/lessonVideo.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="healProblem">
+				<div class="hotTits">
+					<p>健康资讯</p>
+					<a href="#" class="more">查看更多&gt;</a>
+				</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/heal.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/heal.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="healProblem">
+				<div class="hotTits">
+					<p>健康食品</p>
+				</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/food.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/lessonVideo.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/heal.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/heal.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class="nowrap">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		var slider = mui("#slider");
+		slider.slider({
+			interval: 3000
+		});
+		//搜索栏背景渐变
+		/*window.addEventListener('touchmove',function(e){
+			var opNum=document.body.scrollTop/135;
+			if(opNum>1){opNum=1;}
+			document.querySelector('.topBar').style.backgroundColor='rgba(227,158,72,'+opNum+')';
+		},false);*/
+	</script>
+
+</html>
