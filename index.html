@@ -126,7 +126,6 @@
 					<p style="text-align:center;">您还可以</p>
 					<a href="forget.html" id='forgetPassword'>忘记密码</a>
 					<a href="register.html" id='reg'>注册新账号</a>
-					<a href="tabbar.html" id='reg'>暂时跳首页</a>
 				</div>
 			</div>
 		</div>
@@ -136,7 +135,7 @@
 		<script type="text/javascript">
 			
 			$(function(){
-				
+				var netCut=true;
 				//用户登录
 				$("#btnLogin").click(function () {
 					if($("#txtUserName").val()=='' || $("#txtPassword").val()==''){
@@ -145,14 +144,16 @@
 					}
 					
 					$(this).html("<span class='mui-spinner'></span>");
-					$(this).css('disabled',true);
+					//$(this).attr('disabled',true);
+					
 					$.ajax({
 						async: false,
 						type: "Get",
 						url: "http://123.207.122.136/Service.ashx?jsoncallback=?",
 						dataType: "jsonp",
 						data: { requesttype: "0101", username: $("#txtUserName").val(), password: $("#txtPassword").val(), requesttime: (new Date).getTime() },
-						success: function OnSuccess(data){
+						success: function(data){
+							netCut=false;
 							if(data.code=='201'){
 								mui.alert(data.message, '蜜蜂中医');
 							}else{
@@ -163,13 +164,23 @@
 							$('#btnLogin').html("登录");
 							$('#btnLogin').removeAttr('disabled');
 						},
-						error: function OnError(){
+						error: function(){
+							netCut=false;
 							mui.toast('网络延迟，请稍后再试');
 							$('#btnLogin').html("登录");
 							$('#btnLogin').removeAttr('disabled');
 						}
 					});
-					return false;
+					//提示没联网
+					setTimeout(function(){
+						if(netCut){
+							mui.toast('请检查网络');
+							$('#btnLogin').html("登录");
+							$('#btnLogin').removeAttr('disabled');
+						}
+					},2000);
+					
+					//return false;
 				});
 			});
 			

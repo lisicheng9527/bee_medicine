@@ -3,22 +3,43 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>蜜蜂中医</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+		<!--标准mui.css-->
 		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<!--字体图标的css-->
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<!--城市区域选择css-->
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
 		<style>
-			html,body {
-				background-color: #efeff4;
+			*{margin:0; padding:0;}
+			input::-webkit-input-placeholder{
+				color: #999;
 			}
-			.title{
+			@font-face {
+				font-family: 'iconfont';
+				src: url('fonts/iconfont.eot');
+				/* IE9*/
+				src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+				url('fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('fonts/iconfont.svg#iconfont') format('svg');
+				/* iOS 4.1- */
+			}
+			.title {
 				margin: 20px 15px 10px;
 				color: #6d6d72;
 				font-size: 15px;
 			}
-			 .oa-contact-cell.mui-table .mui-table-cell {
+			.banner img{
+				display: block;
+			}
+			.oa-contact-cell.mui-table .mui-table-cell {
 				padding: 11px 0;
 				vertical-align: middle;
 			}
@@ -27,36 +48,401 @@
 				position: relative;
 				margin: -11px 0;
 			}
-	
+			
 			.oa-contact-avatar {
 				width: 75px;
 			}
+			
 			.oa-contact-avatar img {
 				border-radius: 50%;
 			}
+			
 			.oa-contact-content {
 				width: 100%;
 			}
-			.oa-contact-name {
-				margin-right: 20px;
+			
+			.iconfont {
+				font-family: "iconfont" !important;
+				font-size: 14px;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+				-webkit-text-stroke-width: 0.2px;
+				-moz-osx-font-smoothing: grayscale;
 			}
-			.oa-contact-name, oa-contact-position {
+			
+			.topBar {
+				width: 100%;
+				position: fixed;
+				top: 0;
+				z-index: 200;
+				padding:10px 0;
+				/*background-color: rgb(227,158,72);*/
+			}
+			.topBar .iconTxt{
+				margin-top: -3px;
+				padding: 0;
+				text-align: center;
+				color: #fff;
+				font-size: 12px;
+			}
+			
+			.topBar .searchBox{
+				height: 38px;
+				margin: 0 50px 0 15px;
+				position:relative;
+			}
+			
+			.searchBox .mui-icon{
+				position:absolute;
+				top:8px;
+				left:8px;
+				color:#888888;
+			}
+			
+			.menuBox .iconfont{
+				font-size:22px;
+				color:#fff;
+				display: inline-block;
+			}
+			
+			.menuBox {
+				position: absolute;
+				top: 10px;
+				right: 0;
+				width: 50px;
+				height: 30px;
+				text-align:center;
+			}
+			
+			.menuBox .mui-icon{
+				font-size:22px;
+				display:inline-block;
+				color:#fff;
+			}
+			
+			.searchBox .seaBtn{
+				height:100%;
+				padding:0;
+				border-radius:6px;
+				outline:none;
+				font-size:14px;
+				text-indent:40px;
+				border:none;
+				background-color: rgba(255,255,255,.7);
+			}
+			
+			.menuBar{
+				display:box;
+				display: -webkit-box;
+			}
+			.menuBar p{
+				margin:0;
+			}
+			.menuBar .first{
+				text-align:center;
+				-webkit-box-flex: 1;
+				background-color:#fff;
+				margin-right:1px;
+				padding:12px 0;
+				height: 94px;
+			}
+			.menuBar .smTit{
+				color: #303030;
+			}
+			.menuBar .smTits{
+				width: 100%;
+				left: 0;
+				position: absolute;
+				bottom: 10px;
+				font-size: 12px;
+				color: #8f8f94;
+			}
+			.menuBar .second{
+				margin-right:1px;
+			}
+			.menuBar .second,.menuBar .third{
+				-webkit-box-flex: 1;
+				text-align:center;
+				background-color:#fff;
+				padding:12px 0 30px;
+				height: 94px;
+			}
+			.mainCon{
+				display:box;
+				display: -webkit-box;
+			}
+			.mainCon .leftCon{
+				-webkit-box-flex: 1;
+				margin-right:3px;
+				background-color:#fff;
+				padding:0 7px;
+			}
+			.mainCon .rightCon{
+				-webkit-box-flex: 1;
+				margin-left:3px;
+				background-color:#fff;
+			}
+			
+			.articalList{
+				margin-top: 12px;
+				background-color: #fff;
+			}
+			.mui-table-view .mui-media-object{
+				max-width: 80px;
+				height: 80px;
+			}
+			.nowrap{
+				white-space: normal;
+				font-size: 14px;
+				line-height: 18px;
+				margin-top: 5px;
+				color: #de0000;
+			}
+			.mui-table-view:before{
+				height: 0;
+			}
+			.mui-table-view-cell:after{
+				left: 0;
+				background-color: #EAEAEA;
+			}
+			
+			.healProblem{
+				background-color: #fff;
+				margin: 6px 0;
+			}
+			.selectBtn ul{
+				display: box;
+				display: -webkit-flex;
+			}
+			.selectBtn ul li{
+				width: 100%;
+				-webkit-box-flex: 1;
+				list-style-type: none;
+				text-align: center;
+				background-color: #fff;
+				padding: 12px 0;
+				font-size: 14px;
+				position: relative;
+			}
+			.selectBtn .triangle{
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				border-top: 10px solid transparent;
+				border-left: 5px solid transparent;
+				border-right: 10px solid #C5C5C5;
+			}
+			.selectBtn ul li:nth-child(2){
+				margin: 0 1px;
+			}
+			.artBot{
+				width: 100%;
+				border-top: 1px solid #F7F7F7;
+				color: #f00;
+				font-size: 14px;
+				padding-top: 5px;
+				margin-top: 35px;
+				position: relative;
+			}
+			.artBot .moreInfo{
+				width: 100%;
+				position: absolute;
+				top: -25px;
+				color: #8C8C8C;
+			}
+			.moreInfo label{
 				float: left;
 			}
+			.moreInfo span{
+				float: right;
+			}
+			.mui-media-body{
+				font-size: 14px;
+				white-space: normal;
+			}
+			.mui-media-body .arcTit{
+				color: #333;
+				margin-top: -3px;
+			}
+			.buy label{
+				color: #8C8C8C;
+				font-size: 12px;
+				margin-right: 20px;
+			}
+			.articalList .mui-media .buyBtn{
+				position: absolute;
+				bottom: 15px;
+				right: 15px;
+			}
+			
 		</style>
 	</head>
 
 	<body>
 		<div class="mui-content">
-			<div class="title">
-				这是webview模式选项卡中的第4个子页面，该页面展示一个商城示例
+			<div class="banner">
+				<img src="images/shopBan.jpg" width="100%" />
 			</div>
+			
+			<div class="topBar">
+				<!--<div class="scanBox">
+					<span class="iconfont">&#xe65d;</span>
+					<p class="iconTxt">扫呀扫</p>
+				</div>-->
+				<div class="searchBox">
+					<input type="text" class="seaBtn" placeholder="搜高手、处方、案例">
+					<span class="mui-icon mui-icon-search"></span>
+				</div>
+				<div class="menuBox">
+					<span class="iconfont">&#xe65d;</span>
+					<p class="iconTxt">扫呀扫</p>
+				</div>
+			</div>
+			
+			<div class="selectBtn">
+				<ul>
+					<li id="showCityPicker"><span>城市</span><i class="triangle"></i></li>
+					<li id="showAreaPicker"><span>区域</span><i class="triangle"></i></li>
+					<li id="smartSort"><span>智能排序</span><i class="triangle"></i></li>
+				</ul>
+			</div>
+			
+			<div class="articalList">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/shopPic.jpg">
+							<div class="mui-media-body">
+								<p class="arcTit">正宗山东大枣，楼兰蜜语 新疆大枣 一等五星 和田大红枣500g</p>
+								<p class="nowrap">￥219.00</p>
+							</div>
+							<div class="buy">
+								<label>55人购买</label>
+								<label>56条评价</label>
+							</div>
+							<a href="#" class="buyBtn"><img src="images/buy.png" width="35" /></a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/shopPic.jpg">
+							<div class="mui-media-body">
+								<p class="arcTit">正宗山东大枣，楼兰蜜语 新疆大枣 一等五星 和田大红枣500g</p>
+								<p class="nowrap">￥219.00</p>
+							</div>
+							<div class="buy">
+								<label>55人购买</label>
+								<label>56条评价</label>
+							</div>
+							<a href="#" class="buyBtn"><img src="images/buy.png" width="35" /></a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/shopPic.jpg">
+							<div class="mui-media-body">
+								<p class="arcTit">正宗山东大枣，楼兰蜜语 新疆大枣 一等五星 和田大红枣500g</p>
+								<p class="nowrap">￥219.00</p>
+							</div>
+							<div class="buy">
+								<label>55人购买</label>
+								<label>56条评价</label>
+							</div>
+							<a href="#" class="buyBtn"><img src="images/buy.png" width="35" /></a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/shopPic.jpg">
+							<div class="mui-media-body">
+								<p class="arcTit">正宗山东大枣，楼兰蜜语 新疆大枣 一等五星 和田大红枣500g</p>
+								<p class="nowrap">￥219.00</p>
+							</div>
+							<div class="buy">
+								<label>55人购买</label>
+								<label>56条评价</label>
+							</div>
+							<a href="#" class="buyBtn"><img src="images/buy.png" width="35" /></a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/shopPic.jpg">
+							<div class="mui-media-body">
+								<p class="arcTit">正宗山东大枣，楼兰蜜语 新疆大枣 一等五星 和田大红枣500g</p>
+								<p class="nowrap">￥219.00</p>
+							</div>
+							<div class="buy">
+								<label>55人购买</label>
+								<label>56条评价</label>
+							</div>
+							<a href="#" class="buyBtn"><img src="images/buy.png" width="35" /></a>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		mui.init({
-			swipeBack:true //启用右滑关闭功能
+		var slider = mui("#slider");
+		slider.slider({
+			interval: 3000
 		});
+		
+		(function($, doc) {
+			//选择城市
+			var cityPicker = new $.PopPicker({
+				layer: 2
+			});
+			var sortPicker = new $.PopPicker();
+			
+			sortPicker.setData([{
+					value:'time',
+					text:'时间'
+				},{
+					value:'distance',
+					text:'距离'
+				},{
+					value:'label',
+					text:'标签'
+				}
+			]);
+			cityPicker.setData(cityData);
+			var showCityPickerButton = doc.getElementById('showCityPicker');
+			var showAreaPickerButton = doc.getElementById('showAreaPicker');
+			var showSortButton = doc.getElementById('smartSort');
+	
+			showCityPickerButton.addEventListener('tap', citySelect, false);
+			showAreaPickerButton.addEventListener('tap', citySelect, false);
+			showSortButton.addEventListener('tap',function(){
+				sortPicker.show(function(items){
+					showSortButton.children[0].innerText=items[0].text;
+				});
+			},false);
+			
+			
+			function citySelect(event) {
+				cityPicker.show(function(items) {
+					showCityPickerButton.children[0].innerText=items[0].text;
+					showAreaPickerButton.children[0].innerText=items[1].text;
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}
+
+		})(mui,document);
+		//搜索栏背景渐变
+		window.addEventListener('touchmove',function(e){
+			var opNum=document.body.scrollTop/135;
+			if(opNum>1){opNum=1;}
+			document.querySelector('.topBar').style.backgroundColor='rgba(227,158,72,'+opNum+')';
+		},false);
 	</script>
+
 </html>

@@ -128,8 +128,11 @@
       "images/mine1.png",
       "images/mine9.png",
       "images/mine3.png",
-      "images/head.png"
-    ]
+      "images/head.png",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
   },
   "tabbar-with-home.html": {
     "resources": [
@@ -152,13 +155,38 @@
       "images/diagnose.png",
       "images/heal.jpg",
       "images/lessonVideo.jpg",
-      "fonts/mui.ttf"
-    ]
+      "fonts/mui.ttf",
+      "fonts/iconfont.woff",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/app.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
   },
   "tabbar-with-healthy.html": {
     "resources": [
-      "fonts/mui.ttf"
-    ]
+      "fonts/mui.ttf",
+      "images/healAdvertise.jpg",
+      "js/mui.picker.js",
+      "images/healBanner.jpg",
+      "js/mui.poppicker.js",
+      "images/point.png",
+      "images/healPic.jpg",
+      "images/keep.png",
+      "js/city.data.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "images/turn.png",
+      "js/city.data-3.js",
+      "images/water.png",
+      "fonts/iconfont.woff",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/iconfont.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
   },
   "tabbar-with-chat.html": {
     "resources": [
@@ -169,12 +197,23 @@
       "css/app.css",
       "css/mui.min.css",
       "images/head.png"
-    ]
+    ],
+    "refer": []
   },
   "tabbar-with-city.html": {
     "resources": [
       "js/mui.min.js",
-      "css/mui.min.css"
-    ]
+      "css/mui.min.css",
+      "images/buy.png",
+      "images/shopPic.jpg",
+      "images/shopBan.jpg",
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "js/city.data.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "js/city.data-3.js"
+    ],
+    "refer": []
   }
 }

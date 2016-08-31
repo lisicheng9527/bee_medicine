@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<style>
+			*{margin: 0;padding: 0;}
+			.mui-content{background-color: #fff; padding-bottom: 30px;}
+			a{color:#E39E48;}
+			.mui-bar{
+				box-shadow:none;
+				background-color:#E39E48;
+				height:50px;
+			}
+			.mui-bar .mui-icon{
+				padding-top:14px;
+			}
+			.mui-bar .mui-title{
+				text-align: left;
+				color:#fff;
+				line-height: 54px;
+				font-weight:normal;
+			}
+			.tits{
+				font-size: 16px;
+				color: #333;
+				padding: 15px;
+			}
+			.symptom{
+				padding: 0 15px 15px 15px;
+			}
+			.symptom label{
+				display: inline-block;
+				color: #6E6E6E;
+				font-size: 14px;
+				background-color: #F0F0F0;
+				padding: 3px 10px;
+				border-radius: 15px;
+				margin-bottom: 10px;
+				margin-right: 3px;
+			}
+			.writeMes{
+				margin: 0 15px;
+				position: relative;
+			}
+			.writeMes textarea{
+				width: 100%;
+				min-height: 150px;
+				border: none;
+				font-size: 14px;
+				background-color: #F0F0F0;
+			}
+			.wordNum{
+				position: absolute;
+				bottom: 30px;
+				right: 15px;
+				color: #9E9E9E;
+			}
+			.addPic{
+				margin: 0 15px;
+				overflow: hidden;
+			}
+			.addPic img{
+				float: left;
+			}
+			.addPic .addTxt{
+				margin-top: 6px;
+				margin-left: 20px;
+				float: left;
+			}
+			.addPic .addTxt p{
+				font-size: 12px;
+			}
+			.nextCon{
+				padding: 0 40px;
+			}
+			.next{
+				width: 100%;
+				color: #fff;
+				margin-top: 40px;
+				padding: 8px 0;
+				border-radius: 15px;
+				background-color: #E39E48;
+				border-color: #E39E48;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+			<h1 class="mui-title">快速问诊</h1>
+		</header>
+		<div class="mui-content">
+			<p class="tits">描述问题找医生</p>
+			<div class="symptom">
+				<label>宝宝发烧</label>
+				<label>发烧</label>
+				<label>阴道炎</label>
+				<label>长痘痘</label>
+				<label>鼻炎</label>
+				<label>拉肚子</label>
+				<label>宝宝缺钙</label>
+				<label>其他问题</label>
+			</div>
+			<div class="writeMes">
+				<textarea placeholder="你可以选择上述症状直接咨询医生，或者在输入框中描述您的问题，包括身体状况，疾病和症状等，我们将会推荐最专业的医生为您服务，并且保证您的隐私安全。"></textarea>
+				<span class="wordNum"><label>0</label>/300</span>
+			</div>
+			<div class="addPic">
+				<img src="images/add.png" width="60" />
+				<div class="addTxt">
+					<span>添加照片</span>
+					<p>病症部位、检查报告或者其他病情资料</p>
+				</div>
+			</div>
+			<div class="nextCon"><button class="next">下一步</button></div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.enterfocus.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+
+</html>
