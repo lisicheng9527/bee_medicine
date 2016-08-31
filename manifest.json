@@ -10,7 +10,7 @@
     "icons": {
         "72": "icon.png"
     },
-    "launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+    "launch_path": "tabbar.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
     "developer": {
         "name": "",/*开发者名称*/
         "email": "",/*开发者邮箱地址*/
@@ -305,9 +305,14 @@
 					"js/mui.min.js",
 					"css/iconfont.css",
 					"css/app.css",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"quick-diagnose.html",
+					"js/common.js",
+					"js/immersed.js"
 				],
-				"refer": [],
+				"refer": [
+					"barcode_scan.html"
+				],
 				"priority": 0
 			},
 			"tabbar-with-healthy.html": {
@@ -361,6 +366,24 @@
 					"css/mui.poppicker.css",
 					"css/mui.picker.css",
 					"js/city.data-3.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"quick-diagnose.html": {
+				"resources": [
+					"images/add.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/food.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"barcode_scan.html": {
+				"resources": [
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0

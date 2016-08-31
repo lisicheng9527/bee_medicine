@@ -68,7 +68,7 @@
 				float: left;
 			}
 			.addPic .addTxt{
-				margin-top: 6px;
+				margin-top: 8px;
 				margin-left: 20px;
 				float: left;
 			}
@@ -82,12 +82,70 @@
 				width: 100%;
 				color: #fff;
 				margin-top: 40px;
-				padding: 8px 0;
-				border-radius: 15px;
+				padding: 12px 0;
+				border-radius: 25px;
 				background-color: #E39E48;
 				border-color: #E39E48;
 			}
+			#phoShow{
+				padding: 0 15px 15px;
+			}
+			#phoShow img{
+				width: 90px;
+				display: inline-block;
+				margin-right: 10px;
+			}
+			#phoShow img:last-child{
+				margin-right: 0;
+			}
+			
 		</style>
+		<script type="text/javascript">
+			// 扩展API加载完毕后调用onPlusReady回调函数 
+			document.addEventListener( "plusready", onPlusReady, false );
+			// 扩展API加载完毕，现在可以正常调用扩展API 
+			function onPlusReady() {
+			}
+			
+			// 从相册中选择图片 
+			/*function galleryImg() {
+				// 从相册中选择图片
+				console.log("从相册中选择图片:");
+			    plus.gallery.pick( function(path){
+			    	console.log(path);
+			    }, function ( e ) {
+			    	console.log( "取消选择图片" );
+			    }, {filter:"image"} );
+			}*/
+
+			// 从相册中选择多张图片 
+			function galleryImgs(){
+				// 从相册中选择图片
+				var upload={
+					phoShow:document.getElementById('phoShow')
+				}
+			    plus.gallery.pick( function(e){
+			    	for(var i in e.files){
+			    		upload.phoShow.innerHTML+='<img src="'+e.files[i]+'" />';
+				    	//console.log(e.files[i]);
+			    	}
+			    	
+			    	upload.diaPic=upload.phoShow.getElementsByTagName('img');
+			    	
+			    	for (var i=0;i<upload.diaPic.length;i++) {
+						upload.diaPic[i].onclick=function(){
+							window.confirm('确定删除？') ? this.parentNode.removeChild(this) : '';
+						}
+					}
+			    }, function ( e ) {
+			    	console.log( "取消选择图片" );
+			    },{filter:"image",multiple:true});
+			}
+			
+			//alert(upload.);
+			
+			
+		</script>
 
 	</head>
 
@@ -112,7 +170,8 @@
 				<textarea placeholder="你可以选择上述症状直接咨询医生，或者在输入框中描述您的问题，包括身体状况，疾病和症状等，我们将会推荐最专业的医生为您服务，并且保证您的隐私安全。"></textarea>
 				<span class="wordNum"><label>0</label>/300</span>
 			</div>
-			<div class="addPic">
+			<div id="phoShow"></div>
+			<div class="addPic" onclick="galleryImgs()">
 				<img src="images/add.png" width="60" />
 				<div class="addTxt">
 					<span>添加照片</span>

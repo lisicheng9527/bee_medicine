@@ -19,7 +19,8 @@
       "images/qq.png",
       "images/weibo.png",
       "images/login_bg.jpg",
-      "tab-webview-main.html"
+      "tab-webview-main.html",
+      "tabbar-with-mine.html"
     ],
     "refer": [
       "register.html",
@@ -35,10 +36,12 @@
       "js/jquery-1.12.1.min.js",
       "js/mui.min.js",
       "fonts/mui.ttf",
-      "css/mui.min.css"
+      "css/mui.min.css",
+      "set-info.html"
     ],
     "refer": [
-      "index.html"
+      "index.html",
+      "set-info.html"
     ]
   },
   "forget.html": {
@@ -95,7 +98,8 @@
       "fonts/mui.ttf",
       "css/mui.min.css",
       "images/login_47.png",
-      "images/login_49.png"
+      "images/login_49.png",
+      "tabbar-with-mine.html"
     ],
     "refer": [
       "index.html"
@@ -129,6 +133,8 @@
       "images/mine9.png",
       "images/mine3.png",
       "images/head.png",
+      "person-edit.html",
+      "index.html",
       "js/mui.min.js",
       "css/mui.min.css"
     ],
@@ -160,9 +166,14 @@
       "js/mui.min.js",
       "css/iconfont.css",
       "css/app.css",
-      "css/mui.min.css"
+      "css/mui.min.css",
+      "quick-diagnose.html",
+      "js/common.js",
+      "js/immersed.js"
     ],
-    "refer": []
+    "refer": [
+      "barcode_scan.html"
+    ]
   },
   "tabbar-with-healthy.html": {
     "resources": [
@@ -215,5 +226,28 @@
       "js/city.data-3.js"
     ],
     "refer": []
+  },
+  "set-info.html": {
+    "resources": [
+      "index.html"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "quick-diagnose.html": {
+    "resources": [
+      "images/add.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/food.jpg"
+    ],
+    "refer": []
+  },
+  "barcode_scan.html": {
+    "resources": [
+      "js/common.js"
+    ]
   }
 }
