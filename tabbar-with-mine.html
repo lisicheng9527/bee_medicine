@@ -58,6 +58,19 @@
 				margin-top: 5px;
 			}
 		</style>
+		<script type="text/javascript">
+			// H5 plus事件处理
+			function plusReady(){
+				var ws=plus.webview.getWebviewById('tabbar.html');
+				document.querySelector('.userName').innerHTML=ws.preate;
+				//console.log( "当前Webview窗口："+ws.getURL() );
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener("plusready",plusReady,false);
+			}
+		</script>
 	</head>
 
 	<body>
@@ -71,7 +84,7 @@
 					<img src="images/head.png" class="head" />
 				</div>
 				<div class="userType">
-					<h4 class="userName">每逢佳节倍思亲</h4>
+					<h4 class="userName"></h4>
 					<span>健康值：56</span>
 					<span>用户类别：VIP</span>
 				</div>
@@ -164,6 +177,7 @@
 	</body>
 	<script src="js/mui.min.js"></script>
 	<script>
+		
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});

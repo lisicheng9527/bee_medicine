@@ -34,11 +34,25 @@
 			}
 			
 		</style>
+		<!--<script type="text/javascript">
+			// H5 plus事件处理
+			function plusReady(){
+				var ws=plus.webview.currentWebview();
+				//alert(ws.preate);
+				//console.log( "当前Webview窗口："+ws.getURL() );
+				
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener("plusready",plusReady,false);
+			}
+		</script>-->
 	</head>
 
 	<body>
 		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="tabbar-with-home.html">
+			<a class="mui-tab-item" href="tabbar-with-home.html">
 				<span class="mui-icon iconfont">&#xe89d;</span>
 				<span class="mui-tab-label">首页</span>
 			</a>
@@ -54,7 +68,7 @@
 				<span class="mui-icon iconfont">&#xe615;</span>
 				<span class="mui-tab-label">商城</span>
 			</a>
-			<a class="mui-tab-item" href="tabbar-with-mine.html">
+			<a class="mui-tab-item mui-active" href="tabbar-with-mine.html">
 				<span class="mui-icon iconfont">&#xe702;</span>
 				<span class="mui-tab-label">我的</span>
 			</a>
@@ -64,7 +78,7 @@
 	<script>
 		//mui初始化
 		mui.init();
-		var subpages = ['tabbar-with-home.html', 'tabbar-with-chat.html', 'tabbar-with-healthy.html', 'tabbar-with-city.html', 'tabbar-with-mine.html'];
+		var subpages = ['tabbar-with-mine.html', 'tabbar-with-chat.html', 'tabbar-with-healthy.html', 'tabbar-with-city.html', 'tabbar-with-home.html'];
 		var subpage_style = {
 			top: '-1px',
 			bottom: '51px'
@@ -87,6 +101,8 @@
 				self.append(sub);
 			}
 		});
+		
+		//console.log(w.data);
 		
 		//当前激活选项
 		var activeTab = subpages[0];

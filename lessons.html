@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>蜜蜂中医</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<style>
+			*{margin: 0; padding: 0;}
+			p{margin: 0; padding: 0;}
+			.noline:after{
+				height: 0 !important;
+			}
+			.topOperate{
+				overflow: hidden;
+				padding: 10px;
+				background-color: #E68019;
+			}
+			.topOperate .mui-icon-closeempty{
+				vertical-align: middle;
+				margin-right: 6px;
+				font-size: 35px;
+			}
+			.topOperate .close{
+				float: left;
+				color: #fff;
+				font-size: 16px;
+			}
+			.topOperate .share{
+				float: right;
+				color: #fff;
+			}
+			.topOperate .mui-icon-upload{
+				font-size: 26px;
+				margin-top: 5px;
+			}
+			.videoIntro{
+				margin-bottom: 15px;
+				background-color: #fff;
+				padding: 10px 15px 0;
+			}
+			.videoIntro h3{
+				padding-top: 3px;
+				font-weight: normal;
+				font-size: 18px;
+			}
+			.videoIntro .details{
+				font-size: 14px;
+				margin: 10px 0;
+			}
+			.videoIntro ul li{
+				list-style-type: none;
+				font-size: 14px;
+				margin-top: 5px;
+			}
+			.videoIntro li span{
+				color: #8f8f94;
+			}
+			.videoIntro .mui-table-view{
+				margin-top: 15px;
+				font-size: 14px;
+				position: relative;
+			}
+			.mui-table-view .mui-table-view-cell{
+				padding: 12px 0;
+			}
+			.mui-table-view-cell>a:not(.mui-btn){
+				margin: -11px -15px -11px 0;
+			}
+			.mui-table-view span{
+				color: #8f8f94;
+				margin-right: 50px;
+			}
+			.mui-table-view span label{
+				color: #8f8f94;
+				margin-left: 6px;
+				font-size: 16px;
+				position: relative;
+				bottom: 1px;
+			}
+			.mui-table-view .buyIt{
+				position: absolute;
+				top: 13px;
+				right: 0;
+				font-size: 16px;
+			}
+			.buyIt label{
+				color: #C80101;
+				font-size: 18px;
+				margin-right: 15px;
+			}
+			.buyIt .buyBtn{
+				background-color: #C80101;
+				padding: 6px 16px;
+				color: #fff;
+				border-radius: 15px;
+			}
+			.hotTits{
+				padding: 6px 0;
+				border-bottom: 1px solid #EAEAEA;
+				position: relative;
+				background-color: #fff;
+			}
+			.hotTits p{
+				border-left: 5px solid #7738BA;
+				padding-left: 15px;
+				margin: 0;
+			}
+			.comment{
+				overflow: hidden;
+				background-color: #fff;
+				padding:15px;
+				margin-bottom: 12px;
+			}
+			.comment:last-child{
+				margin-bottom: 57px;
+			}
+			.comment .topInfo{
+				overflow: hidden;
+				position: relative;
+			}
+			.comment .comHead{
+				max-width: 50px;
+				height: 50px;
+				margin-right: 10px;
+				float: left;
+			}
+			.nickName h3{
+				font-weight: normal;
+				font-size: 16px;
+				margin-bottom: 3px;
+			}
+			.attention{
+				padding: 2px 10px 2px 12px;
+				position: absolute;
+				top: 4px;
+				right: 0;
+				font-size: 14px;
+				color: #E39E48;
+				border-radius: 30px;
+				border: 1px solid #E39E48;
+			}
+			.attention .plus{
+				position: relative;
+				right: 4px;
+				font-size: 16px;
+			}
+			.comContent{
+				margin: 3px 0;
+				padding-left: 60px;
+			}
+			.comContent .comTxt p{
+				font-size: 16px;
+				color: #333;
+			}
+			.receive{
+				margin-top: 48px;
+				background-color: #F3F3F3;
+				padding: 10px 15px;
+				border-radius: 5px;
+				position: relative;
+			}
+			.receive .triangle{
+				border-right: 8px solid transparent;
+				border-left:8px solid transparent;
+				border-bottom: 8px solid #F3F3F3;
+				position: absolute;
+				top: -8px;
+				right: 16px;
+			}
+			.receive .good span{
+				display: inline-block;
+				margin-left: 15px;
+			}
+			.receive .comIcons{
+				width: 16px !important;
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+			.receive .comInfo{
+				width: 100%;
+				overflow: hidden;
+				color: #8C8C8C;
+				position: absolute;
+				top: -30px;
+				left: 0;
+			}
+			.comInfo .comDate{
+				font-size: 14px;
+			}
+			.receive li{
+				list-style-type: none;
+				margin-bottom: 5px;
+				font-size: 14px;
+			}
+			.receive li:last-child{
+				margin: 0;
+			}
+			.receive li span{
+				margin: 0;
+				padding: 0;
+				color: #8c8c8c;
+			}
+			.myComment{
+				width: 100%;
+				position: fixed;
+				bottom: 0;
+				border-top: 1px solid #EFEFEF;
+				background-color: #fff;
+				padding: 8px 15px;
+			}
+			.myComment .apply{
+				position: absolute;
+				left: 15px;
+				top: 4px;
+				text-align: center;
+				color: #3E3A39;
+				font-size: 12px;
+			}
+			.myComment .mui-icon-compose{
+				display: block;
+				font-size: 26px;
+			}
+			/*.myComment .writeMsg{
+				padding-left: 40px;
+			}*/
+			.myComment .writeMsg input{
+				width: 100%;
+				margin: 0;
+				background-color: #F1F1F1;
+				border-radius: 20px;
+				border: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="topOperate">
+				<p class="close"><span class="mui-icon mui-icon-closeempty"></span>详情</p>
+				<p class="share"><span class="mui-icon mui-icon-upload"></span></p>
+			</div>
+			
+			<img src="images/lessonBan.jpg" width="100%" style="display: block;" />	
+			
+			<div class="videoIntro">
+				<h3>红枣创造的医疗奇迹，你值得拥有</h3>
+				<p class="details">促进血液循环和抗衰老红枣是天然的美容食品，还可益气健脾，促进血液循环和抗衰老，红枣是天然的美容食品，还可益气健脾，促进血液循环和抗衰老</p>
+				<ul>
+					<li><span>时长：</span>36:00</li>
+				</ul>
+				<div class="mui-table-view noline">
+					<div class="mui-table-view-cell">
+						<span class="mui-icon mui-icon-eye"><label>121</label></span>
+						<span class="mui-icon mui-icon-chatboxes"><label>22</label></span>
+						
+						<div class="buyIt">
+							<label>￥299.00</label>
+							<a href="#" class="buyBtn">购买</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="hotTits">
+				<p>用户留言</p>
+			</div>
+			<div class="comment">
+				<div class="topInfo">
+					<img src="images/head.png" class="comHead" />
+					<div class="nickName">
+						<h3>每逢佳节倍思亲</h3>
+						<p>最佳的健康卫士</p>
+					</div>
+					<a href="#" class="attention"><span class="plus">+</span>关注</a>
+				</div>
+				<div class="comContent">
+					<div class="comTxt">
+						<p>听说你们每天都被帅醒，实不相瞒，我曾经也被这个问题困扰过，有好几次都帅的我失眠</p>
+					</div>
+					
+					<div class="receive">
+						<i class="triangle"></i>
+						<div class="comInfo">
+							<div class="comDate mui-pull-left">
+								12-02 养生
+							</div>
+							<div class="good mui-pull-right">
+								<span><img src="images/good.png" class="comIcons" />3</span>
+								<span><img src="images/comment.png" class="comIcons" />3</span>
+							</div>
+						</div>
+						<ul>
+							<li>
+								<a href="#">装逼王：</a>
+								<span>论装逼我只服你</span>
+							</li>
+							<li>
+								<a href="#">无形之逼：</a>
+								<span>楼上说的很有道理</span>
+							</li>
+							<li>
+								<a href="#">初代逼者：</a>
+								<span>我以前也有这个毛病，后来被别人打一顿就好了</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="comment">
+				<div class="topInfo">
+					<img src="images/head.png" class="comHead" />
+					<div class="nickName">
+						<h3>每逢佳节倍思亲</h3>
+						<p>最佳的健康卫士</p>
+					</div>
+					<a href="#" class="attention"><span class="plus">+</span>关注</a>
+				</div>
+				<div class="comContent">
+					<div class="comTxt">
+						<p>听说你们每天都被帅醒，实不相瞒，我曾经也被这个问题困扰过，有好几次都帅的我失眠</p>
+					</div>
+					
+					<div class="receive">
+						<i class="triangle"></i>
+						<div class="comInfo">
+							<div class="comDate mui-pull-left">
+								12-02 养生
+							</div>
+							<div class="good mui-pull-right">
+								<span><img src="images/good.png" class="comIcons" />3</span>
+								<span><img src="images/comment.png" class="comIcons" />3</span>
+							</div>
+						</div>
+						<ul>
+							<li>
+								<a href="#">装逼王：</a>
+								<span>论装逼我只服你</span>
+							</li>
+							<li>
+								<a href="#">无形之逼：</a>
+								<span>楼上说的很有道理</span>
+							</li>
+							<li>
+								<a href="#">初代逼者：</a>
+								<span>我以前也有这个毛病，后来被别人打一顿就好了</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="comment">
+				<div class="topInfo">
+					<img src="images/head.png" class="comHead" />
+					<div class="nickName">
+						<h3>每逢佳节倍思亲</h3>
+						<p>最佳的健康卫士</p>
+					</div>
+					<a href="#" class="attention"><span class="plus">+</span>关注</a>
+				</div>
+				<div class="comContent">
+					<div class="comTxt">
+						<p>听说你们每天都被帅醒，实不相瞒，我曾经也被这个问题困扰过，有好几次都帅的我失眠</p>
+					</div>
+					
+					<div class="receive">
+						<i class="triangle"></i>
+						<div class="comInfo">
+							<div class="comDate mui-pull-left">
+								12-02 养生
+							</div>
+							<div class="good mui-pull-right">
+								<span><img src="images/good.png" class="comIcons" />3</span>
+								<span><img src="images/comment.png" class="comIcons" />3</span>
+							</div>
+						</div>
+						<ul>
+							<li>
+								<a href="#">装逼王：</a>
+								<span>论装逼我只服你</span>
+							</li>
+							<li>
+								<a href="#">无形之逼：</a>
+								<span>楼上说的很有道理</span>
+							</li>
+							<li>
+								<a href="#">初代逼者：</a>
+								<span>我以前也有这个毛病，后来被别人打一顿就好了</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="myComment">
+			<!--<a href="#" class="apply"><span class="mui-icon mui-icon-compose"></span>报名</a>-->
+			<div class="writeMsg">
+				<input type="text" placeholder="我要留言..." />
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			
+		</script>
+
+	</body>
+
+</html>

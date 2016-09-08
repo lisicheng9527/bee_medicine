@@ -10,7 +10,7 @@
     "icons": {
         "72": "icon.png"
     },
-    "launch_path": "tabbar.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+    "launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
     "developer": {
         "name": "",/*开发者名称*/
         "email": "",/*开发者邮箱地址*/
@@ -173,7 +173,8 @@
 					"images/qq.png",
 					"images/weibo.png",
 					"images/login_bg.jpg",
-					"tab-webview-main.html"
+					"tab-webview-main.html",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -220,11 +221,11 @@
 					"images/question.png",
 					"images/healthy.png",
 					"images/footBan.png",
-					"tabbar-with-home.html"
+					"tabbar-with-home.html",
+					"tabbar-with-city.html",
+					"tabbar-with-mine.html"
 				],
 				"refer": [
-					"tabbar-with-city.html",
-					"tabbar-with-mine.html",
 					"tabbar-with-healthy.html",
 					"tabbar-with-chat.html"
 				],
@@ -365,7 +366,10 @@
 					"js/city.data.js",
 					"css/mui.poppicker.css",
 					"css/mui.picker.css",
-					"js/city.data-3.js"
+					"js/city.data-3.js",
+					"css/app.css",
+					"css/iconfont.css",
+					"fonts/iconfont.woff"
 				],
 				"refer": [],
 				"priority": 0
@@ -384,6 +388,21 @@
 			"barcode_scan.html": {
 				"resources": [
 					"js/common.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"lessons.html": {
+				"resources": [
+					"images/comment.png",
+					"images/good.png",
+					"images/chatPic.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/head.png",
+					"images/lessonBan.jpg"
 				],
 				"refer": [],
 				"priority": 0

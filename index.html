@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/common.js"></script>
 		<!--<link href="css/style.css" rel="stylesheet" />-->
 		<style>
 			body,.mui-content{background-color:#fff;}
@@ -83,7 +84,7 @@
 		</style>
 		<script type="text/javascript">
 			// H5 plus事件处理
-			function plusReady(){
+			/*function plusReady(){
 			}
 			if(window.plus){
 				plusReady();
@@ -91,9 +92,9 @@
 				document.addEventListener("plusready",plusReady,false);
 			}
 			// 创建并显示新窗口
-			function openWebview(){
-				var w = plus.webview.open( "tabbar.html","slide-in-bottom" );
-			}
+			function openWebview(data){
+				var w = plus.webview.open( "tabbar.html","slide-in-bottom",data );
+			}*/
 		</script>
 
 	</head>
@@ -158,11 +159,28 @@
 								mui.alert(data.message, '蜜蜂中医');
 							}else{
 								var userName=data.data[0].UserInfo[0].NICKNAME;
-								mui.alert('欢迎回来,'+userName+'','蜜蜂中医');
-								openWebview();
+								//mui.alert('欢迎回来,'+userName+'','蜜蜂中医');
+								//openWebview(userName);
+								
+								var ws=null,wp=null,wo=null;
+								// H5 plus事件处理
+								function plusReady(){
+									ws=plus.webview.currentWebview();
+									wo=ws.opener();
+									wp=plus.webview.create('tabbar.html','tabbar.html',{scrollIndicator:'none',scalable:false,popGesture:'none'},{preate:userName});
+								}
+								if(window.plus){
+									plusReady();
+								}else{
+									document.addEventListener('plusready',plusReady,false);
+								}
+								// 动画窗口
+								setTimeout(function(){wp.show('slide-in-bottom')},2000);
+								//wp.show(type);
+								//setTimeout(animateWindow('slide-in-bottom'),3000);
 							}
-							$('#btnLogin').html("登录");
-							$('#btnLogin').removeAttr('disabled');
+							/*$('#btnLogin').html("登录");
+							$('#btnLogin').removeAttr('disabled');*/
 						},
 						error: function(){
 							netCut=false;
