@@ -309,11 +309,10 @@
 					"css/mui.min.css",
 					"quick-diagnose.html",
 					"js/common.js",
-					"js/immersed.js"
-				],
-				"refer": [
+					"js/immersed.js",
 					"barcode_scan.html"
 				],
+				"refer": [],
 				"priority": 0
 			},
 			"tabbar-with-healthy.html": {
@@ -336,7 +335,8 @@
 					"js/mui.min.js",
 					"css/app.css",
 					"css/iconfont.css",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"lessons.html"
 				],
 				"refer": [],
 				"priority": 0

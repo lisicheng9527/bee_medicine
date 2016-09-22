@@ -171,10 +171,12 @@
 			"css/mui.min.css",
 			"quick-diagnose.html",
 			"js/common.js",
-			"js/immersed.js"
+			"js/immersed.js",
+			"barcode_scan.html"
 		],
 		"refer": [
-			"barcode_scan.html"
+			"barcode_scan.html",
+			"quick-diagnose.html"
 		]
 	},
 	"tabbar-with-healthy.html": {
@@ -197,9 +199,12 @@
 			"js/mui.min.js",
 			"css/app.css",
 			"css/iconfont.css",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"lessons.html"
 		],
-		"refer": []
+		"refer": [
+			"lessons.html"
+		]
 	},
 	"tabbar-with-chat.html": {
 		"resources": [

@@ -70,7 +70,7 @@
 				height:0 !important;
 			}
 			.others{
-				text-align:center;
+				text-align:center; 
 			}
 			.others a{
 				display:inline-block;
@@ -157,6 +157,8 @@
 							netCut=false;
 							if(data.code=='201'){
 								mui.alert(data.message, '蜜蜂中医');
+								$('#btnLogin').html("登录");
+								$('#btnLogin').removeAttr('disabled');
 							}else{
 								var userName=data.data[0].UserInfo[0].NICKNAME;
 								//mui.alert('欢迎回来,'+userName+'','蜜蜂中医');
@@ -175,12 +177,14 @@
 									document.addEventListener('plusready',plusReady,false);
 								}
 								// 动画窗口
-								setTimeout(function(){wp.show('slide-in-bottom')},2000);
+								setTimeout(function(){
+									wp.show('slide-in-bottom');
+									$('#btnLogin').html("登录");
+									$('#btnLogin').removeAttr('disabled');
+								},2000);
 								//wp.show(type);
 								//setTimeout(animateWindow('slide-in-bottom'),3000);
 							}
-							/*$('#btnLogin').html("登录");
-							$('#btnLogin').removeAttr('disabled');*/
 						},
 						error: function(){
 							netCut=false;
